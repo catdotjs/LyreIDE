@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # Ignore logs
 Logs
+.vscode
