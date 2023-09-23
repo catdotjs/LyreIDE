@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Lyre.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800" Height="450" CanResize="False"
+        x:Class="Lyre.Views.StartWindow"
+        x:DataType="vm:StartWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Lyre IDE - Create Something Cool!">
+
+    <Design.DataContext><vm:StartWindowViewModel/></Design.DataContext>  
+    <Window.Styles>
+        <StyleInclude Source="/Styles/TextStyles.axaml"/>
+        <StyleInclude Source="/Styles/ButtonStyles.axaml"/>
+    </Window.Styles>
+
+    <StackPanel Background="Purple" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+    <!-- Projects list -->
+        <ScrollViewer Width="768" HorizontalScrollBarVisibility="Auto" Margin="12,16">
+            <Grid x:Name="Projects" HorizontalAlignment="Left" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" Margin="0,8">
+                <Button Classes="Project" Grid.Column="0">a</Button>
+                <Button Classes="Project" Grid.Column="1">a</Button>
+                <Button Classes="Project" Grid.Column="2">a</Button>
+                <Button Classes="Project" Grid.Column="3">a</Button>
+                <Button Classes="Project" Grid.Column="4">a</Button>
+            </Grid>
+        </ScrollViewer>
+    <!-- Action Buttons -->
+        <Grid x:Name="Buttons" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="16,4">
+            <!-- Grid Definitions-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Buttons! -->
+            <Button Classes="Wide" Grid.Column="0" Grid.Row="0" Command="{Binding CreateNewProject}">Create New Project</Button>
+            <Button Classes="Wide" Grid.Column="1" Grid.Row="0">Open a Project</Button>
+            <Button Classes="Wide" Grid.Column="0" Grid.Row="1">Clone a Git Repo</Button>
+            <Button Classes="Wide" Grid.Column="1" Grid.Row="1">Credits for Lyre❤️</Button>
+        </Grid>
+    </StackPanel>
+
+</Window>
