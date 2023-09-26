@@ -12,7 +12,7 @@ public partial class App : Application{
     }
     public override void OnFrameworkInitializationCompleted(){
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop){
-            desktop.MainWindow = new StartWindow{DataContext = new StartWindowViewModel(),};
+            desktop.MainWindow = new StartWindow();
         }
         base.OnFrameworkInitializationCompleted();
     }

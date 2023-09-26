@@ -1,17 +1,17 @@
 using Avalonia.Controls;
 using Lyre.Extras;
+using Lyre.ViewModels;
 
 namespace Lyre.Views;
-#pragma warning disable CA2211,CS8618
-public partial class StartWindow : Window {
-    public static Window CurrentWindow;
+
+public partial class StartWindow : Window, IWindow {
+    Window IWindow.Current => this;
     public StartWindow(){
         InitializeComponent();
         // Linux 
         MaxHeight = MinHeight = 450;
         MaxWidth = MinWidth = 800;
-        CurrentWindow = this;
-        
+        DataContext = new StartWindowVM(this);
         Title = $"Lyre IDE - {SplashText.GetRandom()}";
     }
 }

@@ -10,4 +10,7 @@
     <Style Selector="TextBlock.h2">
         <Setter Property="FontSize" Value="26"/>
     </Style>
+    <Style Selector="TextBlock.ProjectCreateText">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
 </Styles>

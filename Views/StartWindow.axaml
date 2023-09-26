@@ -6,11 +6,10 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Width="800" Height="450" CanResize="False"
         x:Class="Lyre.Views.StartWindow"
-        x:DataType="vm:StartWindowViewModel"
+        x:DataType="vm:StartWindowVM"
         Icon="/Assets/avalonia-logo.ico"
         Title="Lyre IDE - Create Something Cool!">
-
-    <Design.DataContext><vm:StartWindowViewModel/></Design.DataContext>  
+        
     <Window.Styles>
         <StyleInclude Source="/Styles/TextStyles.axaml"/>
         <StyleInclude Source="/Styles/ButtonStyles.axaml"/>

@@ -4,19 +4,43 @@ using System.Linq;
 using System.Threading.Tasks;
 using CliWrap;
 using CliWrap.Buffered;
+using ReactiveUI;
 
 #pragma warning disable CS4014
 
 namespace Lyre.ViewModels;
-public class CreateProjectViewModel : ViewModelBase {
+public class CreateProjectVM : ViewModelBase {
+    // Project Path
+    private static Uri projectPath = new Uri("/");
+    public Uri ProjectPath {
+        get => projectPath; 
+        set => this.RaiseAndSetIfChanged(ref projectPath,value);
+    }
+    
+    // DotNet Versions
     private readonly static List<string> versions = new();
     public static List<string> Versions { get{
         GetDotNetVersions();
         return versions;
     }}
+    
+    // Init
+    public CreateProjectVM(IWindow iwindow){
+        usedWindow = iwindow;
+    }
+
+    /// <summary>
+    ///  Used for selecting path 
+    /// </summary>
+    /// <returns> void/Task </returns>
+    public async Task ChooseProjectPath(){
+        ProjectPath = (await FileSystem.GetFolderPath(usedWindow.Current))[0];
+    }
+    
     /// <summary>
     /// Gets current SDK's and writes the versions to ComboBox
     /// </summary>
+    /// <returns> void/Task </returns>
     private static async Task GetDotNetVersions(){
         // example output:(oldest to newest version)
         // 6.0.414 [/sdk/path/]
