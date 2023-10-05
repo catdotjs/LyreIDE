@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ReactiveUI;
 
@@ -12,25 +13,25 @@ public class CreateProjectVM : ViewModelBase {
         set => this.RaiseAndSetIfChanged(ref projectPath,value);
     }
     
-    // DotNet Versions
-    private static List<string> versions = new();
-    public static List<string> Versions { get => versions;}
-    
+    // dotnet templates 
+    private static Dictionary<string, string> templates = new();
+
+    // used for ComboBox
+    public static List<string> Templates { get => templates.Values.ToList();}
     // Init
     public CreateProjectVM(IWindow iwindow){
         usedWindow = iwindow;
-        AsyncFunctions().GetAwaiter().GetResult();
+    }
+    
+    public static async Task LoadAsync(){
+        templates = await DotNetHandler.GetTemplates();
     }
 
-    public async Task AsyncFunctions(){
-        versions = await DotNetInfo.GetVersions();
-    }
-
-    /// <summary>
-    ///  Used for selecting path 
-    /// </summary>
-    /// <returns> void/Task </returns>
     public async Task ChooseProjectPath(){
         ProjectPath = (await FileSystem.GetFolderPath(usedWindow.Current))[0];
+    }
+    
+    public async Task CreateNewProject(){
+        
     }
 }
