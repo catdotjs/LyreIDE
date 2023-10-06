@@ -8,9 +8,9 @@ struct DotNetCreate{
     public string ProjectPath;
     public string ProjectType; // Template
     public string ExtraArguments;
-    public GenerateProjectOptions ProjectGenOptions;
+    public ProjectGeneratationOptions ProjectGenOptions;
 
-    public DotNetCreate(string projectName, string projectPath,string projectType,string extraArguments,GenerateProjectOptions generateProjectOptions){
+    public DotNetCreate(string projectName, string projectPath,string projectType,string extraArguments,ProjectGeneratationOptions generateProjectOptions){
         ProjectName = projectName;
         ProjectPath = projectPath;
         ProjectType = projectType;
@@ -20,7 +20,8 @@ struct DotNetCreate{
 }
 
 [Flags]
-public enum GenerateProjectOptions{
+public enum ProjectGeneratationOptions{
+    none = 0b0,
     sln = 0b1,
     gitignore = 0b10,
     tofile = 0b100,

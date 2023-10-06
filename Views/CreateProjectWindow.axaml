@@ -16,13 +16,13 @@
         <!-- Project Name-->
         <Grid Grid.Row="1" Classes="center" RowDefinitions="Auto,Auto">
             <TextBlock Classes="h2 center bold" Grid.Row="0" TextDecorations="underline" Margin="0,8">Project Name</TextBlock>
-            <TextBox x:Name="ProjectName" Classes="center" Width="300" Grid.Row="1" Watermark="Enter Project Name"/>
+            <TextBox  Text="{Binding Name}" x:Name="ProjectName" Classes="center" Width="300" Grid.Row="1" Watermark="Enter Project Name"/>
         </Grid>
 
         <!-- Template -->
         <Grid Grid.Row="2" Classes="center" RowDefinitions="Auto,Auto" Margin="0,6,0,0">
             <TextBlock Classes="h2 center bold" Grid.Row="0" TextDecorations="underline" Margin="0,8">Project Template</TextBlock>
-            <ComboBox x:Name="ProjectTemplate" Grid.Row="1" Classes="center" Width="300" PlaceholderText="Select Project Template" ItemsSource="{Binding Templates}"/>
+            <ComboBox x:Name="ProjectTemplate" Grid.Row="1" Classes="center" Width="300" PlaceholderText="Select Project Template" ItemsSource="{Binding Templates}" SelectedItem="{Binding ChosenTemplate}"/>
         </Grid>
 
         <!-- Project Path -->
@@ -39,16 +39,16 @@
             <!-- NET version -->
             <Grid Grid.Column="0" Grid.Row="1" Classes="center justify" RowDefinitions="Auto,Auto" Margin="16,0">
                 <TextBlock Grid.Row="0" Classes="h4 center justify bold">Additional Arguments</TextBlock>
-                <TextBox x:Name="ProjectArgument" Grid.Row="1" Watermark="Use with caution <3" Classes="h3 center justify" Width="200"/>
+                <TextBox x:Name="ProjectArgument" Grid.Row="1" Watermark="Use with caution!" Classes="h3 center justify" Width="200" Text="{Binding Args}"/>
             </Grid>
 
             <!-- Other options -->
             <Grid Grid.Column="1" Grid.Row="1" Classes="center justify" RowDefinitions="Auto,Auto,Auto" Margin="16,0">
-                <CheckBox x:Name="InFile" Grid.Row="0" Margin="0,-4">Create project in file?</CheckBox>
-                <CheckBox x:Name="CreateSLN" Grid.Row="1" Margin="0,-4">Create .sln?</CheckBox>
-                <CheckBox x:Name="CreateGit" Grid.Row="2" Margin="0,-4">Create .gitignore?</CheckBox>
+                <CheckBox x:Name="InFile"    Grid.Row="0" Margin="0,-4" IsChecked="{Binding InFile}">Create project in file?</CheckBox>
+                <CheckBox x:Name="CreateSLN" Grid.Row="1" Margin="0,-4" IsChecked="{Binding CreateSLN}">Create .sln?</CheckBox>
+                <CheckBox x:Name="CreateGit" Grid.Row="2" Margin="0,-4" IsChecked="{Binding CreateGit}">Create .gitignore?</CheckBox>
             </Grid>
-        </Grid>
+        </Grid> 
 
         <Button Grid.Row="5" VerticalAlignment="Bottom" Command="{Binding CreateNewProject}">Create!</Button>
     </Grid>

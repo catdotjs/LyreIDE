@@ -20,10 +20,6 @@
         <ScrollViewer Width="768" HorizontalScrollBarVisibility="Auto" Margin="12,16">
             <Grid x:Name="Projects" HorizontalAlignment="Left" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" Margin="0,8">
                 <Button Classes="Project" Grid.Column="0">a</Button>
-                <Button Classes="Project" Grid.Column="1">a</Button>
-                <Button Classes="Project" Grid.Column="2">a</Button>
-                <Button Classes="Project" Grid.Column="3">a</Button>
-                <Button Classes="Project" Grid.Column="4">a</Button>
             </Grid>
         </ScrollViewer>
     <!-- Action Buttons -->
@@ -32,8 +28,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
+            </Grid.RowDefinitions> 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
