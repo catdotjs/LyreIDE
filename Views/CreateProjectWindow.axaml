@@ -24,7 +24,7 @@
             <TextBlock Classes="h2 center bold" Grid.Row="0" TextDecorations="underline" Margin="0,8">Project Template</TextBlock>
             <ComboBox x:Name="ProjectTemplate" Grid.Row="1" Classes="center" Width="300" PlaceholderText="Select Project Template" ItemsSource="{Binding Templates}" SelectedItem="{Binding ChosenTemplate}"/>
         </Grid>
-
+        
         <!-- Project Path -->
         <Grid Grid.Row="3" Classes="center" RowDefinitions="Auto,Auto,Auto" Margin="0,16,0,0">
             <TextBlock Classes="h2 center bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextDecorations="underline">Project Path</TextBlock>
@@ -41,7 +41,7 @@
                 <TextBlock Grid.Row="0" Classes="h4 center justify bold">Additional Arguments</TextBlock>
                 <TextBox x:Name="ProjectArgument" Grid.Row="1" Watermark="Use with caution!" Classes="h3 center justify" Width="200" Text="{Binding Args}"/>
             </Grid>
-
+            
             <!-- Other options -->
             <Grid Grid.Column="1" Grid.Row="1" Classes="center justify" RowDefinitions="Auto,Auto,Auto" Margin="16,0">
                 <CheckBox x:Name="InFile"    Grid.Row="0" Margin="0,-4" IsChecked="{Binding InFile}">Create project in file?</CheckBox>

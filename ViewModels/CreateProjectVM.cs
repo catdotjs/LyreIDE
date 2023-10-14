@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,14 +21,34 @@ public class CreateProjectVM : ViewModelBase {
     
     // Project Template - get here is unused
     private string _Template = ""; 
-    public string ChosenTemplate {get => "";set => _Template=templates[value];}
+    [Required] 
+    public string Template {
+        get {return _Template;}
+        set {
+            if(string.IsNullOrEmpty(value)){
+                throw new ArgumentNullException("You must choose a template!");
+            }else{
+                this.RaiseAndSetIfChanged(ref _Template,templates[value]);
+            }
+        }
+    }
 
     // Project Name
     private string _Name = ""; 
-    public string Name {get=>_Name; set=>_Name=value.Replace(" ","-").Replace("\\","").Replace("\"","");} // no no characters
+    [Required] 
+    public string Name {
+        get { return _Name; } 
+        set {
+            if(string.IsNullOrEmpty(value)){
+                throw new ArgumentNullException("You must give a name to your project!");
+            }else{
+                this.RaiseAndSetIfChanged(ref _Name,value.ReplaceMultiple(new char[]{' ','\\','\"','/'},'-'));
+            }
+        } // no no characters
+    } 
 
     // Additional Arguments
-    private string _Args = ""; 
+    private string _Args = "";
     public string Args {get=>_Args; set=>_Args=value;}
 
     // Additional Options
@@ -43,13 +64,17 @@ public class CreateProjectVM : ViewModelBase {
     public static async Task LoadAsync() => templates = await DotNetHandler.GetTemplates();
     public async Task ChooseProjectPath() => ProjectPath = (await FileSystem.GetFolderPath(usedWindow.Current))[0];
     public async Task CreateNewProject(){
-        ProjectGeneratationOptions file = _file?ProjectGeneratationOptions.tofile:0;
-        ProjectGeneratationOptions sln = _sln?ProjectGeneratationOptions.sln:0;
-        ProjectGeneratationOptions git = _git?ProjectGeneratationOptions.gitignore:0;
+        bool nameGiven=_Name!="";
+        bool templateChosen=_Template!="";
+        if(nameGiven && templateChosen){
+            ProjectGeneratationOptions file = _file?ProjectGeneratationOptions.tofile:0;
+            ProjectGeneratationOptions sln = _sln?ProjectGeneratationOptions.sln:0;
+            ProjectGeneratationOptions git = _git?ProjectGeneratationOptions.gitignore:0;
 
-        string path = _Path.ToString().Remove(0,7);
+            string path = _Path.ToString().Remove(0,7);
 
-        DotNetCreate package = new DotNetCreate(_Name,path,_Template,_Args,file|sln|git); //file://
-        await DotNetHandler.CreateProject(package);
+            DotNetCreate package = new DotNetCreate(_Name,path,_Template,_Args,file|sln|git); //file://
+            await DotNetHandler.CreateProject(package);
+        }
     }
 }
