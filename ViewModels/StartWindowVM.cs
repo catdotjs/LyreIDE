@@ -3,13 +3,13 @@ using Avalonia.Controls;
 
 namespace Lyre.ViewModels;
 public class StartWindowVM : ViewModelBase {
-    public StartWindowVM(IWindow iwindow){
-        usedWindow = iwindow;
+    public StartWindowVM(Window window){
+        baseWindow = window;
     }
     public void CreateNewProject(){
-        Window createProject = new CreateProjectWindow();
+        Window createProject = new CreateProjectWindow(baseWindow);
         createProject.Show();
         // This is a design choice :^Pc
-        usedWindow.Current.Close();
+        baseWindow.Close();
     }
 }

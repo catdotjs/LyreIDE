@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ReactiveUI;
 
 using Lyre.Extends;
+using Avalonia.Controls;
 
 
 namespace Lyre.ViewModels;
@@ -62,9 +63,9 @@ public class CreateProjectVM : ViewModelBase {
     public bool CreateGit {get => _git; set => _git = value;}
 
     // Init
-    public CreateProjectVM(IWindow iwindow) => usedWindow = iwindow;
+    public CreateProjectVM(Window window) => baseWindow = window;
     public static async Task LoadAsync() => templates = await DotNetHandler.GetTemplates();
-    public async Task ChooseProjectPath() => ProjectPath = (await FileSystem.GetFolderPath(usedWindow.Current))[0];
+    public async Task ChooseProjectPath() => ProjectPath = (await FileSystem.GetFolderPath(baseWindow))[0];
     public async Task CreateNewProject(){
         bool nameGiven=_Name!="";
         bool templateChosen=_Template!="";

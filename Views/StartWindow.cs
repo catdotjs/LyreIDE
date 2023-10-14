@@ -4,8 +4,7 @@ using Lyre.ViewModels;
 
 namespace Lyre.Views;
 
-public partial class StartWindow : Window, IWindow {
-    Window IWindow.Current => this;
+public partial class StartWindow : Window {
     public StartWindow(){
         InitializeComponent();
         // Linux 
