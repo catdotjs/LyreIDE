@@ -36,9 +36,9 @@
 
             <!-- Buttons! -->
             <Button Classes="Wide" Grid.Column="0" Grid.Row="0" Command="{Binding CreateNewProject}">Create New Project</Button>
-            <Button Classes="Wide" Grid.Column="1" Grid.Row="0">Open a Project</Button>
-            <Button Classes="Wide" Grid.Column="0" Grid.Row="1">Clone a Git Repo</Button>
-            <Button Classes="Wide" Grid.Column="1" Grid.Row="1">Credits for Lyre❤️</Button>
+            <Button Classes="Wide" Grid.Column="1" Grid.Row="0" Command="{Binding OpenProject}">Open a Project</Button>
+            <Button Classes="Wide" Grid.Column="0" Grid.Row="1" Command="{Binding PullGitProject}">Clone a Git Repo</Button>
+            <Button Classes="Wide" Grid.Column="1" Grid.Row="1" Command="{Binding ShowCredits}">Credits for Lyre❤️</Button>
         </Grid>
     </StackPanel>
 

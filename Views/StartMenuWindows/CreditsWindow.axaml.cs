@@ -6,9 +6,9 @@ using Lyre.Windows;
 
 namespace Lyre.Views;
 
-public partial class GitPullWindow : ReturningWindow{
+public partial class CreditsWindow : ReturningWindow{
     
-    public GitPullWindow(Window returnWindow) : base(returnWindow){
+    public CreditsWindow(Window returnWindow) : base(returnWindow){
         InitializeComponent();
         DataContext = new GitPullVM(this);
     }

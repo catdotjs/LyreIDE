@@ -4,8 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:Lyre.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Lyre.Views.GitPullWindow"
-        x:DataType="vm:GitPullVM"
-        Title="Lyre IDE - Pullin' from git!">
+        x:Class="Lyre.Views.OpenProjectWindow"
+        x:DataType="vm:OpenProjectVM"
+        Title="Lyre IDE - Snooping for a project!">
 
 </Window>
