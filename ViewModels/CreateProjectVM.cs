@@ -4,11 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Lyre.Extends;
+using Lyre.CLI;
+using Lyre.CLI.dotnet;
+
 using ReactiveUI;
 
-using Lyre.Extends;
 using Avalonia.Controls;
-
 
 namespace Lyre.ViewModels;
 public class CreateProjectVM : ViewModelBase {

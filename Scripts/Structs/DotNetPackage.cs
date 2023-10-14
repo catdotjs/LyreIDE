@@ -1,8 +1,7 @@
-using System;
-
 /// <summary>
 /// Used as a information package for DotNetHandler.CreateProject
 /// </summary>
+namespace Lyre.CLI.dotnet;
 struct DotNetCreate{
     public string ProjectName;
     public string ProjectPath;
@@ -17,12 +16,4 @@ struct DotNetCreate{
         ProjectGenOptions = generateProjectOptions;
         ExtraArguments = extraArguments;
     }
-}
-
-[Flags]
-public enum ProjectGeneratationOptions{
-    none = 0b0,
-    sln = 0b1,
-    gitignore = 0b10,
-    tofile = 0b100,
 }

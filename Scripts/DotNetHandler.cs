@@ -9,8 +9,9 @@ using CliWrap.Buffered;
 using Serilog;
 
 using Lyre.Extends;
+using Lyre.CLI.dotnet;
 
-namespace Lyre;
+namespace Lyre.CLI;
 /// <summary>
 /// Anything related to .NET is handled here 
 /// </summary>
