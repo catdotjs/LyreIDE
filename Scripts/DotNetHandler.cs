@@ -2,9 +2,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using CliWrap;
 using CliWrap.Buffered;
+
 using Serilog;
+
+using Lyre.Extends;
 
 namespace Lyre;
 /// <summary>

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 
+namespace Lyre.Extends;
 public static class StringExtension{
     /// <summary>
     /// Replaces given array of characters with replacement character

@@ -22,7 +22,7 @@
         <!-- Template -->
         <Grid Grid.Row="2" Classes="center" RowDefinitions="Auto,Auto" Margin="0,6,0,0">
             <TextBlock Classes="h2 center bold" Grid.Row="0" TextDecorations="underline" Margin="0,8">Project Template</TextBlock>
-            <ComboBox x:Name="ProjectTemplate" Grid.Row="1" Classes="center" Width="300" PlaceholderText="Select Project Template" ItemsSource="{Binding Templates}" SelectedItem="{Binding ChosenTemplate}"/>
+            <ComboBox x:Name="ProjectTemplate" Grid.Row="1" Classes="center" Width="300" PlaceholderText="Select Project Template" ItemsSource="{Binding Templates}" SelectedItem="{Binding Template}"/>
         </Grid>
         
         <!-- Project Path -->

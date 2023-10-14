@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using ReactiveUI;
 
+using Lyre.Extends;
+
 
 namespace Lyre.ViewModels;
 public class CreateProjectVM : ViewModelBase {
