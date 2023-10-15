@@ -10,6 +10,6 @@ public partial class CreditsWindow : ReturningWindow{
     
     public CreditsWindow(Window returnWindow) : base(returnWindow){
         InitializeComponent();
-        DataContext = new GitPullVM(this);
+        DataContext = new CreditsVM(this);
     }
 }
