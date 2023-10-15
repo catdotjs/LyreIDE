@@ -8,11 +8,11 @@ namespace Lyre.Windows;
 /// Returning windows have to return to window that generated them which is closed.
 /// </summary>
 #pragma warning disable CS8600, CS8602
-public partial class ReturningWindow : Window{
+public abstract class ReturningWindow : Window{
     // Window to return
     public Window WindowToGoOnUserClose;
 
-    public ReturningWindow(Window returnWindow){
+    public ReturningWindow(Window returnWindow) : base(){
         WindowToGoOnUserClose = returnWindow;
     }
     /// <summary>

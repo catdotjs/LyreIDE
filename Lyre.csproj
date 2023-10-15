@@ -27,7 +27,7 @@
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Include="Avalonia.Diagnostics" Version="11.0.2" Condition="'$(Configuration)' == 'Debug'" />
 
-    <!-- Style -->
+    <!-- Avalonia Additions -->
     <PackageReference Include="Semi.Avalonia" Version="11.0.1" />
     
     <!-- Serilog -->

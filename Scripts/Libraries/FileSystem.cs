@@ -6,6 +6,9 @@ using System;
 using System.Linq;
 
 namespace Lyre;
+/// <summary>
+/// Used for anything file I/O
+/// </summary>
 static class FileSystem{
     /// <summary>
     /// Starts the folder picker of the current OS system.

@@ -33,7 +33,7 @@ class Program {
 
         // Stuff goes here
         SplashText.Load();
-
+        
         // Don't touch here please
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()

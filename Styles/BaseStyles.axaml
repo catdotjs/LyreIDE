@@ -23,6 +23,10 @@
     <Style Selector="TextBlock.bold">
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
+    <Style Selector="TextBlock.wrap">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
 
     <!-- Alignment -->
     <Style Selector=":is(Control).center">

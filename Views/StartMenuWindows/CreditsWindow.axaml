@@ -3,10 +3,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:Lyre.ViewModels"
+        xmlns:cc="using:Lyre.Controls"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800" Height="450" CanResize="false"
         x:Class="Lyre.Views.CreditsWindow"
         x:DataType="vm:CreditsVM"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Lyre IDE - Work of labour!">
+        Title="Lyre IDE - Work of love!">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="*,Auto,*">
+            <TextBlock  Grid.Row="0" Classes="h1 center bold" VerticalAlignment="Top" Margin="0,16">❤️ Made with Love! ❤️</TextBlock>
+            <StackPanel Grid.Row="1" Margin="12,0">
+                <TextBlock Classes="h2 center bold" Margin="0,16">Written by Dora "catdotjs" G.</TextBlock>
+                <TextBlock Classes="h3 wrap">Check out Lyre's <cc:Hyperlink Reference="https://github.com/catdotjs/LyreIDE">git repo at github!</cc:Hyperlink></TextBlock>
 
+                <TextBlock Classes="h2 center bold" Margin="0,16">- Thank you to following packages -</TextBlock>
+                <TextBlock Classes="h3">• Avalonia by AvaloniaUI Contributors</TextBlock>
+                <TextBlock Classes="h3">• Json.NET by James "Newtonsoft" Newton-King</TextBlock>
+                <TextBlock Classes="h3">• CliWrap by Oleksii "Tyrrrz" Holub</TextBlock>
+                <TextBlock Classes="h3">• Serilog by Serilog Contributors</TextBlock>
+            </StackPanel>
+            
+            <Button Grid.Row="2" VerticalAlignment="Bottom">Exit</Button>
+        </Grid>
 </Window>

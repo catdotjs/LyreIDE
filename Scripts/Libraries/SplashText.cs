@@ -6,10 +6,10 @@ using Serilog;
 // Screw these
 #pragma warning disable CS8600, CS8601, CS8602
 
-/// <summary>
-/// Contains all of the data that need to be loaded when program launches.
-/// </summary>
 namespace Lyre.Extras;
+/// <summary>
+/// Small class that is used for titlebar
+/// </summary>
 public static class SplashText {
     private static string[]? TextList;
 

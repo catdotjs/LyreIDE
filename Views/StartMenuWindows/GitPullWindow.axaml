@@ -8,5 +8,5 @@
         x:DataType="vm:GitPullVM"
         Icon="/Assets/avalonia-logo.ico"
         Title="Lyre IDE - Pullin' from a git repo!">
-
+        
 </Window>
