@@ -10,7 +10,7 @@ public class StartWindowVM : ViewModelBase {
     }
     public void CreateNewProject() => OpenUpWindow(new CreateProjectWindow(baseWindow));
     public void OpenProject() => OpenUpWindow(new OpenProjectWindow(baseWindow));
-    public void PullGitProject() => OpenUpWindow(new GitPullWindow(baseWindow));
+    public void PullGitProject() => OpenUpWindow(new GitCloneWindow(baseWindow));
     public void ShowCredits() => OpenUpWindow(new CreditsWindow(baseWindow));
 
     private void OpenUpWindow(Window window){

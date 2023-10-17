@@ -1,0 +1,15 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Lyre.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="650" d:DesignHeight="450"
+        Width="650" Height="450" CanResize="false"
+        x:Class="Lyre.Views.GitCloneWindow"
+        x:DataType="vm:GitCloneVM"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Lyre IDE - Clonin' from a git repo!">
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Classes="h1 center bold" VerticalAlignment="Top" Margin="0,16">🎀 Pull from a repo 🎀</TextBlock>
+        </StackPanel>
+</Window>

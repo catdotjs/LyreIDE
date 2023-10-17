@@ -1,8 +1,8 @@
 using Avalonia.Controls;
 
 namespace Lyre.ViewModels;
-public class GitPullVM : ViewModelBase {
-    public GitPullVM(Window window){
+public class GitCloneVM : ViewModelBase {
+    public GitCloneVM(Window window){
         baseWindow = window;
     }
 }
