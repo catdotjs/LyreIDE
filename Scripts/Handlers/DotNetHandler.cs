@@ -28,7 +28,7 @@ static class DotNetHandler{
 
         try{
             BufferedCommandResult dotnetInfo = await dotnetWrap.WithArguments("--version").ExecuteBufferedAsync();
-            Log.Information("dotnet is installed! dotnet version "+dotnetInfo.StandardOutput);
+            Log.Information("dotnet is installed! dotnet version "+dotnetInfo.StandardOutput.Trim());
         }catch(Exception e){
             Log.Fatal("MISSING DOTNET! ABORTING!",e);
             throw new FileNotFoundException("Missing dotnet!");
