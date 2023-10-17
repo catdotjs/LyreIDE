@@ -5,6 +5,7 @@
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
     
+    <!-- Would like to use nerd font version of this, sadly it doesn't work right now!-->
     <Application.Resources>
         <FontFamily x:Key="CodeNewRoman">Assets\Fonts\CodeNewRoman.otf#Code New Roman</FontFamily>
     </Application.Resources>

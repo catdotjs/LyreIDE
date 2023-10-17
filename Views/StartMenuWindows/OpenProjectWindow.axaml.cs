@@ -10,6 +10,6 @@ public partial class OpenProjectWindow : ReturningWindow{
     
     public OpenProjectWindow(Window returnWindow) : base(returnWindow){
         InitializeComponent();
-        DataContext = new GitPullVM(this);
+        DataContext = new OpenProjectVM(this);
     }
 }
