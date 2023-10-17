@@ -3,37 +3,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Lyre.ViewModels"
-    mc:Ignorable="d" d:DesignWidth="540" d:DesignHeight="660"
-    Width="540" Height="660" CanResize="false"
+    mc:Ignorable="d" d:DesignWidth="540" d:DesignHeight="600"
+    Width="540" Height="600" CanResize="false"
     x:Class="Lyre.Views.CreateProjectWindow"
     x:DataType="vm:CreateProjectVM"
     Icon="/Assets/avalonia-logo.ico"
     Title="Lyre IDE - Create a New Project">
 
     <!-- Menu-->     
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RowDefinitions="*,*,*,*,*,*">
-        <TextBlock Classes="h1 center bold" Grid.Row="0" VerticalAlignment="Top" Margin="0,16">🛠️ Create a New Project 🛠️</TextBlock>
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBlock Classes="h1 center bold" VerticalAlignment="Top" Margin="0,16">🛠️ Create a New Project 🛠️</TextBlock>
         <!-- Project Name-->
-        <Grid Grid.Row="1" Classes="center" RowDefinitions="Auto,Auto">
+        <Grid Classes="center" RowDefinitions="Auto,Auto">
             <TextBlock Classes="h2 center bold" Grid.Row="0" TextDecorations="underline" Margin="0,8">Project Name</TextBlock>
             <TextBox  Text="{Binding Name}" x:Name="ProjectName" Classes="center" Width="300" Grid.Row="1" Watermark="Enter Project Name"/>
         </Grid>
 
         <!-- Template -->
-        <Grid Grid.Row="2" Classes="center" RowDefinitions="Auto,Auto" Margin="0,6,0,0">
+        <Grid Classes="center" RowDefinitions="Auto,Auto" Margin="0,6,0,0">
             <TextBlock Classes="h2 center bold" Grid.Row="0" TextDecorations="underline" Margin="0,8">Project Template</TextBlock>
             <ComboBox x:Name="ProjectTemplate" Grid.Row="1" Classes="center" Width="300" PlaceholderText="Select Project Template" ItemsSource="{Binding Templates}" SelectedItem="{Binding Template}"/>
         </Grid>
         
         <!-- Project Path -->
-        <Grid Grid.Row="3" Classes="center" RowDefinitions="Auto,Auto,Auto" Margin="0,16,0,0">
+        <Grid Classes="center" RowDefinitions="Auto,Auto,Auto" Margin="0,16,0,0">
             <TextBlock Classes="h2 center bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextDecorations="underline">Project Path</TextBlock>
             <TextBox Grid.Row="1" Grid.Column="0" IsEnabled="False" Width="300" Text="{Binding ProjectPath}" Margin="0,4"/>
             <Button x:Name="ProjectPath" Grid.Row="2" Classes="center" Command="{Binding ChooseProjectPath}">Choose Path</Button>
         </Grid>
 
         <!-- Other Options -->
-        <Grid Grid.Row="4" Classes="center" ColumnDefinitions="Auto,Auto" RowDefinitions="Auto,Auto" Margin="0,16,0,0">
+        <Grid Classes="center" ColumnDefinitions="Auto,Auto"  RowDefinitions="Auto,Auto" Margin="0,16">
             <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Classes="h2 center bold" TextDecorations="underline" Margin="0,8">Other Options</TextBlock>
 
             <!-- NET version -->
@@ -50,6 +50,6 @@
             </Grid>
         </Grid> 
 
-        <Button Grid.Row="5" VerticalAlignment="Bottom" Command="{Binding CreateNewProject}">Create!</Button>
-    </Grid>
+        <Button VerticalAlignment="Bottom" Command="{Binding CreateNewProject}">Create!</Button>
+    </StackPanel>
  </Window>
