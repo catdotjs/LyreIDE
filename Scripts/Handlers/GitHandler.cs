@@ -46,7 +46,7 @@ static class GitHandler{
 
             return true;
         }catch(Exception e){
-            Log.Error("Failed to clone repo, missing git?",e);
+            Log.Error("Failed to clone repo!",e);
             throw new Exception("Failed to clone given repo!");
         }
     }
