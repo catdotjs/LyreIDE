@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using CliWrap;
 using CliWrap.Buffered;
@@ -11,6 +12,22 @@ namespace Lyre.CLI;
 /// </summary>
 static class GitHandler{
     private static Command gitWrap = Cli.Wrap("git");
+
+    /// <summary>
+    /// Used to check if git is installed
+    /// </summary>
+    /// <returns>Task/void</returns>
+    public static async Task CheckGit(){
+                Log.Information("Checking if git is installed");
+
+        try{
+            BufferedCommandResult gitInfo = await gitWrap.WithArguments("-v").ExecuteBufferedAsync();
+            Log.Information("git is installed! "+gitInfo.StandardOutput.Trim());
+        }catch(Exception e){
+            Log.Fatal("MISSING GIT! ABORTING!",e);
+            throw new FileNotFoundException("Missing git! Aborting!");
+        }
+    }
 
     /// <summary>
     /// Clones a given git repo

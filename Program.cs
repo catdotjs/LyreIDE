@@ -30,7 +30,12 @@ class Program {
     }
     public static async Task OnStartAsync(){
         // Any async start code goes here
+        
+        // Check important programs
         await DotNetHandler.CheckDotNet();
+        await GitHandler.CheckGit();
+
+        // Loading
         await CreateProjectVM.LoadAsync(); // Loads project templates
     }
 
