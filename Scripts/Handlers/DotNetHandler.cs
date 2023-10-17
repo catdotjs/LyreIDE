@@ -10,6 +10,7 @@ using Serilog;
 
 using Lyre.Extends;
 using Lyre.CLI.dotnet;
+using System.IO;
 
 namespace Lyre.CLI;
 /// <summary>
@@ -17,6 +18,22 @@ namespace Lyre.CLI;
 /// </summary>
 static class DotNetHandler{
     private static Command dotnetWrap = Cli.Wrap("dotnet");
+
+    /// <summary>
+    /// Checks if user has dotnet installed! 
+    /// </summary>
+    /// <returns>Task/void</returns>
+    public static async Task CheckDotNet(){
+        Log.Information("Checking if dotnet is installed");
+
+        try{
+            BufferedCommandResult dotnetInfo = await dotnetWrap.WithArguments("--info").ExecuteBufferedAsync();
+            Log.Information("dotnet is installed!\n"+dotnetInfo.StandardOutput);
+        }catch(Exception e){
+            Log.Fatal("MISSING DOTNET! ABORTING!",e);
+            throw new FileNotFoundException("Missing dotnet!");
+        }
+    }
     /// <summary>
     /// Gets project templates from dotnet CLI(this is a relatively slow function, please cache the results)
     /// </summary>
@@ -43,8 +60,9 @@ static class DotNetHandler{
             Log.Information("Fetched available templates");
             return templateDict;
         }catch(Exception e){
-            Log.Error(e,"Fetching Templates");
-            throw new Exception("Couldn't fetch Templates. Is dotnet installed?");
+            string failed = "Couldn't fetch Templates. Is dotnet installed correctly?";
+            Log.Error(failed,e);
+            throw new Exception(failed);
         }
     }
 
@@ -71,7 +89,7 @@ static class DotNetHandler{
             return versions;
         }catch(Exception e){
             Log.Error(e,"Fetching SDKs");
-            throw new Exception("Couldn't fetch SDKs. Is dotnet installed?");
+            throw new Exception("Couldn't fetch SDKs. Is there any sdks installed?");
         }
     }
 
@@ -107,8 +125,9 @@ static class DotNetHandler{
             
             Log.Information("Successfully created a new project at " + data.ProjectPath);
         }catch(Exception e){
-            Log.Error(e,"Creating new project");
-            throw new Exception("Couldn't create a new project. Is dotnet installed? Were extra arguments wrong? Given extra args: "+data.ExtraArguments);
+            string failed = "Couldn't create a new project. Is dotnet installed correctly? Were extra arguments wrong? Given extra args: "+data.ExtraArguments;
+            Log.Error(failed,e);
+            throw new Exception(failed);
         }
     }
 }
